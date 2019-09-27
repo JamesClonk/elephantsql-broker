@@ -1,8 +1,10 @@
 services:
-- id: elephantsql
+- id: 8ff5d1c8-c6eb-4f04-928c-6a422e0ea330
   name: elephantsql
   description: PostgreSQL as a Service
   bindable: true
+  instances_retrievable: true
+  bindings_retrievable: true
   tags:
   - elephantsql
   - postgres
@@ -40,6 +42,7 @@ services:
     - id: 6203b8e7-9ef4-44ef-bb0b-48b50409794d
       name: spider
       description: Simple Spider - shared instance
+      free: false
       bindable: true
       metadata:
         displayName: Simple Spider
@@ -57,6 +60,7 @@ services:
     - id: c1ee0844-b72e-4310-ad92-646107e04534
       name: cat
       description: Crazy Cat - shared instance
+      free: false
       bindable: true
       metadata:
         displayName: Crazy Cat
@@ -74,6 +78,7 @@ services:
     - id: f6040673-856b-41d6-9a28-ec28cb0d830b
       name: panda
       description: Pretty Panda - shared instance
+      free: false
       bindable: true
       metadata:
         displayName: Pretty Panda
@@ -93,6 +98,7 @@ services:
     - id: ce7c8607-83d1-44c5-bd3a-fd25154301d2
       name: butterfly
       description: Blissful Butterfly - dedicated instance
+      free: false
       bindable: true
       metadata:
         displayName: Blissful Butterfly
@@ -111,6 +117,7 @@ services:
     - id: 237a5637-a0ca-4c91-84cf-a95fb729629b
       name: hippo
       description: Happy Hippo - dedicated instance
+      free: false
       bindable: true
       metadata:
         displayName: Happy Hippo
@@ -129,6 +136,7 @@ services:
     - id: 81dfd81f-06da-4fb7-b555-36e9f0b86883
       name: elephant
       description: Enormous Elephant - dedicated instance
+      free: false
       bindable: true
       metadata:
         displayName: Enormous Elephant
@@ -147,6 +155,7 @@ services:
     - id: 4cff1189-730d-4492-b3f0-464e43f7b4ee
       name: pigeon
       description: Puffy Pigeon - dedicated instance
+      free: false
       bindable: true
       metadata:
         displayName: Puffy Pigeon
@@ -165,6 +174,7 @@ services:
     - id: 9efceeab-0f01-4a36-8036-405054dd5a87
       name: dolphin
       description: Dramatic Dolphin - dedicated instance
+      free: false
       bindable: true
       metadata:
         displayName: Dramatic Dolphin
@@ -183,6 +193,7 @@ services:
     - id: fa98a3a6-dc82-421f-9541-6b2d7b4ccfe8
       name: rat
       description: Ruthless Rat - dedicated instance
+      free: false
       bindable: true
       metadata:
         displayName: Ruthless Rat
@@ -203,6 +214,7 @@ services:
     - id: 0390886a-3318-4ef4-b66d-cb088c31252b
       name: butterfly-follower
       description: Blissful Butterfly - dedicated instance with follower
+      free: false
       bindable: true
       metadata:
         displayName: Blissful Butterfly with follower
@@ -221,6 +233,7 @@ services:
     - id: e4255775-1cdb-4eb2-84e8-a2c02193ffa8
       name: hippo-follower
       description: Happy Hippo - dedicated instance with follower
+      free: false
       bindable: true
       metadata:
         displayName: Happy Hippo with follower
@@ -239,6 +252,7 @@ services:
     - id: 304e1642-ad5d-4ef2-8c7d-f938c3041b65
       name: elephant-follower
       description: Enormous Elephant - dedicated instance with follower
+      free: false
       bindable: true
       metadata:
         displayName: Enormous Elephant with follower
@@ -257,6 +271,7 @@ services:
     - id: b980eb9b-3116-4dbc-b289-e7e3c603d77e
       name: pigeon-follower
       description: Puffy Pigeon - dedicated instance with follower
+      free: false
       bindable: true
       metadata:
         displayName: Puffy Pigeon with follower
@@ -275,6 +290,7 @@ services:
     - id: 20bd4c2f-625b-4cf7-9e52-0d088ac3dda5
       name: dolphin-follower
       description: Dramatic Dolphin - dedicated instance with follower
+      free: false
       bindable: true
       metadata:
         displayName: Dramatic Dolphin with follower
@@ -293,6 +309,7 @@ services:
     - id: 5a0f4b0a-f92c-4839-994a-d3b762baed1f
       name: rat-follower
       description: Ruthless Rat - dedicated instance with follower
+      free: false
       bindable: true
       metadata:
         displayName: Ruthless Rat with follower

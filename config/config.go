@@ -13,7 +13,7 @@ var (
 )
 
 type Config struct {
-	SkipSSL      string
+	SkipSSL      bool
 	LogLevel     string
 	LogTimestamp bool
 	Username     string
@@ -47,7 +47,7 @@ func loadConfig() {
 }
 
 func Get() *Config {
-	configOnce.Do(func() {
+	once.Do(func() {
 		loadConfig()
 	})
 	return &config
