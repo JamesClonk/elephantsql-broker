@@ -1,0 +1,310 @@
+services:
+- id: elephantsql
+  name: elephantsql
+  description: PostgreSQL as a Service
+  bindable: true
+  tags:
+  - elephantsql
+  - postgres
+  - postgresql
+  - database
+  - relational
+  - rdbms
+  metadata:
+    displayName: ElephantSQL
+    imageUrl: https://www.elephantsql.com/images/elephant_256.png
+    longDescription: Perfectly configured and optimized PostgreSQL databases ready in minutes.
+    providerDisplayName: ElephantSQL
+    documentationUrl: https://www.elephantsql.com/docs/
+    supportUrl: https://www.elephantsql.com/support.html
+  plans:
+    # shared plans
+    - id: 890d1ed6-0ff6-4c93-afc6-df753be6f1e3
+      name: turtle
+      description: Tiny Turtle - shared instance (free)
+      free: true
+      bindable: true
+      metadata:
+        displayName: Tiny Turtle
+        imageUrl: https://www.elephantsql.com/images/turtle_256.png
+        costs:
+        - amount:
+            usd: 0.0
+          unit: Monthly
+        bullets:
+        - Shared high performance server
+        - 20 MB data
+        - 5 concurrent connections
+        dedicatedService: false
+        highAvailability: false
+    - id: 6203b8e7-9ef4-44ef-bb0b-48b50409794d
+      name: spider
+      description: Simple Spider - shared instance
+      bindable: true
+      metadata:
+        displayName: Simple Spider
+        imageUrl: https://www.elephantsql.com/images/spider_256.png
+        costs:
+        - amount:
+            usd: 5.0
+          unit: Monthly
+        bullets:
+        - Shared high performance server
+        - 500 MB data
+        - 10 concurrent connections
+        dedicatedService: false
+        highAvailability: false
+    - id: c1ee0844-b72e-4310-ad92-646107e04534
+      name: cat
+      description: Crazy Cat - shared instance
+      bindable: true
+      metadata:
+        displayName: Crazy Cat
+        imageUrl: https://www.elephantsql.com/images/cat_256.png
+        costs:
+        - amount:
+            usd: 10.0
+          unit: Monthly
+        bullets:
+        - Shared high performance server
+        - 1 GB data
+        - 15 concurrent connections
+        dedicatedService: false
+        highAvailability: false
+    - id: f6040673-856b-41d6-9a28-ec28cb0d830b
+      name: panda
+      description: Pretty Panda - shared instance
+      bindable: true
+      metadata:
+        displayName: Pretty Panda
+        imageUrl: https://www.elephantsql.com/images/panda_256.png
+        costs:
+        - amount:
+            usd: 19.0
+          unit: Monthly
+        bullets:
+        - Shared high performance server
+        - 2 GB data
+        - 20 concurrent connections
+        dedicatedService: false
+        highAvailability: false
+
+    # dedicated plans
+    - id: ce7c8607-83d1-44c5-bd3a-fd25154301d2
+      name: butterfly
+      description: Blissful Butterfly - dedicated instance
+      bindable: true
+      metadata:
+        displayName: Blissful Butterfly
+        imageUrl: https://www.elephantsql.com/images/butterfly_256.png
+        costs:
+        - amount:
+            usd: 49.0
+          unit: Monthly
+        bullets:
+        - Dedicated server
+        - 2 GB RAM
+        - 50 GB data
+        - 50 concurrent connections
+        dedicatedService: true
+        highAvailability: false
+    - id: 237a5637-a0ca-4c91-84cf-a95fb729629b
+      name: hippo
+      description: Happy Hippo - dedicated instance
+      bindable: true
+      metadata:
+        displayName: Happy Hippo
+        imageUrl: https://www.elephantsql.com/images/hippo_256.png
+        costs:
+        - amount:
+            usd: 99.0
+          unit: Monthly
+        bullets:
+        - Dedicated server
+        - 4 GB RAM
+        - 100 GB data
+        - Hundreds of connections
+        dedicatedService: true
+        highAvailability: false
+    - id: 81dfd81f-06da-4fb7-b555-36e9f0b86883
+      name: elephant
+      description: Enormous Elephant - dedicated instance
+      bindable: true
+      metadata:
+        displayName: Enormous Elephant
+        imageUrl: https://www.elephantsql.com/images/elephant_256.png
+        costs:
+        - amount:
+            usd: 199.0
+          unit: Monthly
+        bullets:
+        - Dedicated server
+        - 8 GB RAM
+        - 250 GB data
+        - Hundreds of connections
+        dedicatedService: true
+        highAvailability: false
+    - id: 4cff1189-730d-4492-b3f0-464e43f7b4ee
+      name: pigeon
+      description: Puffy Pigeon - dedicated instance
+      bindable: true
+      metadata:
+        displayName: Puffy Pigeon
+        imageUrl: https://www.elephantsql.com/images/pigeon_256.png
+        costs:
+        - amount:
+            usd: 399.0
+          unit: Monthly
+        bullets:
+        - Dedicated server
+        - 16 GB RAM
+        - 500 GB data
+        - Hundreds of connections
+        dedicatedService: true
+        highAvailability: false
+    - id: 9efceeab-0f01-4a36-8036-405054dd5a87
+      name: dolphin
+      description: Dramatic Dolphin - dedicated instance
+      bindable: true
+      metadata:
+        displayName: Dramatic Dolphin
+        imageUrl: https://www.elephantsql.com/images/dolphin_256.png
+        costs:
+        - amount:
+            usd: 749.0
+          unit: Monthly
+        bullets:
+        - Dedicated server
+        - 32 GB RAM
+        - 1000 GB data
+        - Hundreds of connections
+        dedicatedService: true
+        highAvailability: false
+    - id: fa98a3a6-dc82-421f-9541-6b2d7b4ccfe8
+      name: rat
+      description: Ruthless Rat - dedicated instance
+      bindable: true
+      metadata:
+        displayName: Ruthless Rat
+        imageUrl: https://www.elephantsql.com/images/rat_256.png
+        costs:
+        - amount:
+            usd: 1399.0
+          unit: Monthly
+        bullets:
+        - Dedicated server
+        - 64 GB RAM
+        - 2000 GB data
+        - Hundreds of connections
+        dedicatedService: true
+        highAvailability: false
+
+    # dedicated plans with follower
+    - id: 0390886a-3318-4ef4-b66d-cb088c31252b
+      name: butterfly-follower
+      description: Blissful Butterfly - dedicated instance with follower
+      bindable: true
+      metadata:
+        displayName: Blissful Butterfly with follower
+        imageUrl: https://www.elephantsql.com/images/butterfly-follower_256.png
+        costs:
+        - amount:
+            usd: 98.0
+          unit: Monthly
+        bullets:
+        - 2 dedicated servers
+        - 2 GB RAM
+        - 50 GB data
+        - 50 concurrent connections
+        dedicatedService: true
+        highAvailability: true
+    - id: e4255775-1cdb-4eb2-84e8-a2c02193ffa8
+      name: hippo-follower
+      description: Happy Hippo - dedicated instance with follower
+      bindable: true
+      metadata:
+        displayName: Happy Hippo with follower
+        imageUrl: https://www.elephantsql.com/images/hippo-follower_256.png
+        costs:
+        - amount:
+            usd: 198.0
+          unit: Monthly
+        bullets:
+        - 2 dedicated servers
+        - 4 GB RAM
+        - 100 GB data
+        - Hundreds of connections
+        dedicatedService: true
+        highAvailability: true
+    - id: 304e1642-ad5d-4ef2-8c7d-f938c3041b65
+      name: elephant-follower
+      description: Enormous Elephant - dedicated instance with follower
+      bindable: true
+      metadata:
+        displayName: Enormous Elephant with follower
+        imageUrl: https://www.elephantsql.com/images/elephant-follower_256.png
+        costs:
+        - amount:
+            usd: 398.0
+          unit: Monthly
+        bullets:
+        - 2 dedicated servers
+        - 8 GB RAM
+        - 250 GB data
+        - Hundreds of connections
+        dedicatedService: true
+        highAvailability: true
+    - id: b980eb9b-3116-4dbc-b289-e7e3c603d77e
+      name: pigeon-follower
+      description: Puffy Pigeon - dedicated instance with follower
+      bindable: true
+      metadata:
+        displayName: Puffy Pigeon with follower
+        imageUrl: https://www.elephantsql.com/images/pigeon-follower_256.png
+        costs:
+        - amount:
+            usd: 798.0
+          unit: Monthly
+        bullets:
+        - 2 dedicated servers
+        - 16 GB RAM
+        - 500 GB data
+        - Hundreds of connections
+        dedicatedService: true
+        highAvailability: true
+    - id: 20bd4c2f-625b-4cf7-9e52-0d088ac3dda5
+      name: dolphin-follower
+      description: Dramatic Dolphin - dedicated instance with follower
+      bindable: true
+      metadata:
+        displayName: Dramatic Dolphin with follower
+        imageUrl: https://www.elephantsql.com/images/dolphin-follower_256.png
+        costs:
+        - amount:
+            usd: 1598.0
+          unit: Monthly
+        bullets:
+        - 2 dedicated servers
+        - 32 GB RAM
+        - 1000 GB data
+        - Hundreds of connections
+        dedicatedService: true
+        highAvailability: true
+    - id: 5a0f4b0a-f92c-4839-994a-d3b762baed1f
+      name: rat-follower
+      description: Ruthless Rat - dedicated instance with follower
+      bindable: true
+      metadata:
+        displayName: Ruthless Rat with follower
+        imageUrl: https://www.elephantsql.com/images/rat-follower_256.png
+        costs:
+        - amount:
+            usd: 2798.0
+          unit: Monthly
+        bullets:
+        - 2 dedicated servers
+        - 64 GB RAM
+        - 2000 GB data
+        - Hundreds of connections
+        dedicatedService: true
+        highAvailability: true
