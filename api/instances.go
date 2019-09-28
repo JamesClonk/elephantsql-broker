@@ -30,9 +30,10 @@ type InstanceInfo struct {
 }
 
 type CreateInstanceResponse struct {
-	ID     int    `json:"id"`
-	URL    string `json:"url"`
-	APIKey string `json:"apikey"`
+	ID      int    `json:"id"`
+	Message string `json:"message"`
+	URL     string `json:"url"`
+	APIKey  string `json:"apikey"`
 }
 
 func (c *Client) CreateInstance(name, plan, region string) (*CreateInstanceResponse, error) {
@@ -55,7 +56,7 @@ func (c *Client) CreateInstance(name, plan, region string) (*CreateInstanceRespo
 		return nil, err
 	}
 
-	if statusCode != http.StatusCreated {
+	if statusCode != http.StatusOK {
 		return nil, fmt.Errorf("could not create ElephantSQL instance [%s]: %s", name, string(body))
 	}
 
