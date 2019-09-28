@@ -15,7 +15,7 @@ func init() {
 	log.SetOutput(ioutil.Discard)
 }
 
-func TestBroker_HealthEndpoint(t *testing.T) {
+func TestBroker_Health(t *testing.T) {
 	rec := httptest.NewRecorder()
 	req, err := http.NewRequest("GET", "/health", nil)
 	if err != nil {
@@ -27,7 +27,7 @@ func TestBroker_HealthEndpoint(t *testing.T) {
 	assert.Contains(t, rec.Body.String(), `"status": "ok"`)
 }
 
-func TestBroker_BasicAuthValid(t *testing.T) {
+func TestBroker_BasicAuth(t *testing.T) {
 	rec := httptest.NewRecorder()
 	req, err := http.NewRequest("GET", "/", nil)
 	if err != nil {
@@ -40,7 +40,7 @@ func TestBroker_BasicAuthValid(t *testing.T) {
 	assert.Contains(t, rec.Body.String(), `"status": "ok"`)
 }
 
-func TestBroker_BasicAuthUnauthorized(t *testing.T) {
+func TestBroker_BasicAuth_Unauthorized(t *testing.T) {
 	rec := httptest.NewRecorder()
 	req, err := http.NewRequest("GET", "/", nil)
 	if err != nil {

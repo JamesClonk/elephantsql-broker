@@ -43,7 +43,7 @@ func TestBroker_Catalog(t *testing.T) {
 	assert.Equal(t, util.Body("../_fixtures/broker_catalog.json"), rec.Body.String())
 }
 
-func TestBroker_CatalogNoSharedPlans(t *testing.T) {
+func TestBroker_Catalog_NoSharedPlans(t *testing.T) {
 	test := map[string]util.HttpTestCase{
 		"/regions": util.HttpTestCase{200, util.Body("../_fixtures/api_list_regions.json"), nil},
 	}

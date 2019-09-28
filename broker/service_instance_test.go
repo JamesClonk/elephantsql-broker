@@ -44,7 +44,7 @@ func TestBroker_ProvisionServiceInstance(t *testing.T) {
 	assert.Equal(t, util.Body("../_fixtures/broker_provision_service_instance.json"), rec.Body.String())
 }
 
-func TestBroker_ProvisionServiceInstanceEmptyBody(t *testing.T) {
+func TestBroker_ProvisionServiceInstance_EmptyBody(t *testing.T) {
 	r := NewRouter(util.TestConfig(""))
 
 	rec := httptest.NewRecorder()
@@ -60,7 +60,7 @@ func TestBroker_ProvisionServiceInstanceEmptyBody(t *testing.T) {
 	assert.Contains(t, rec.Body.String(), `"description": "Could not read provisioning request"`)
 }
 
-func TestBroker_ProvisionServiceInstanceUnknownPlan(t *testing.T) {
+func TestBroker_ProvisionServiceInstance_UnknownPlan(t *testing.T) {
 	r := NewRouter(util.TestConfig(""))
 
 	provisioning := ServiceInstanceProvisioning{
@@ -82,7 +82,7 @@ func TestBroker_ProvisionServiceInstanceUnknownPlan(t *testing.T) {
 	assert.Contains(t, rec.Body.String(), `"description": "Unknown plan_id"`)
 }
 
-func TestBroker_ProvisionConflictingServiceInstance(t *testing.T) {
+func TestBroker_ProvisionServiceInstance_Conflicting(t *testing.T) {
 	test := map[string]util.HttpTestCase{
 		"/instances":      util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
 		"/instances/4567": util.HttpTestCase{200, util.Body("../_fixtures/api_get_instance.json"), nil},
@@ -110,7 +110,7 @@ func TestBroker_ProvisionConflictingServiceInstance(t *testing.T) {
 	assert.Contains(t, rec.Body.String(), `"description": "The service instance already exists with different attributes"`)
 }
 
-func TestBroker_ProvisionExistingServiceInstance(t *testing.T) {
+func TestBroker_ProvisionServiceInstance_Existing(t *testing.T) {
 	test := map[string]util.HttpTestCase{
 		"/instances":      util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
 		"/instances/4567": util.HttpTestCase{200, util.Body("../_fixtures/api_get_instance.json"), nil},
@@ -158,7 +158,7 @@ func TestBroker_FetchServiceInstance(t *testing.T) {
 	assert.Equal(t, util.Body("../_fixtures/broker_fetch_service_instance.json"), rec.Body.String())
 }
 
-func TestBroker_FetchServiceInstanceNotFound(t *testing.T) {
+func TestBroker_FetchServiceInstance_NotFound(t *testing.T) {
 	test := map[string]util.HttpTestCase{
 		"/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
 	}
@@ -177,4 +177,70 @@ func TestBroker_FetchServiceInstanceNotFound(t *testing.T) {
 	assert.Equal(t, 404, rec.Code)
 	assert.Contains(t, rec.Body.String(), `"error": "ServiceInstanceNotFound"`)
 	assert.Contains(t, rec.Body.String(), `"description": "The service instance does not exist"`)
+}
+
+func TestBroker_DeprovisionServiceInstance(t *testing.T) {
+	test := map[string]util.HttpTestCase{
+		"/instances":              util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
+		"GET::/instances/4567":    util.HttpTestCase{200, util.Body("../_fixtures/api_get_instance.json"), nil},
+		"DELETE::/instances/4567": util.HttpTestCase{204, "", nil},
+	}
+	apiServer := util.TestServer("", "deadbeef", test)
+	defer apiServer.Close()
+	r := NewRouter(util.TestConfig(apiServer.URL))
+
+	rec := httptest.NewRecorder()
+	req, err := http.NewRequest("DELETE", "/v2/service_instances/8dcdf609-36c9-4b22-bb16-d97e48c50f26", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	req.SetBasicAuth("broker", "pw")
+	r.ServeHTTP(rec, req)
+
+	assert.Equal(t, 200, rec.Code)
+	assert.Equal(t, "{}", rec.Body.String())
+}
+
+func TestBroker_DeprovisionServiceInstance_NotFound(t *testing.T) {
+	test := map[string]util.HttpTestCase{
+		"/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
+	}
+	apiServer := util.TestServer("", "deadbeef", test)
+	defer apiServer.Close()
+	r := NewRouter(util.TestConfig(apiServer.URL))
+
+	rec := httptest.NewRecorder()
+	req, err := http.NewRequest("DELETE", "/v2/service_instances/52551d5f-1350-4f7d-9ddd-710a47ef9b72", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	req.SetBasicAuth("broker", "pw")
+	r.ServeHTTP(rec, req)
+
+	assert.Equal(t, 410, rec.Code)
+	assert.Contains(t, rec.Body.String(), `"error": "MissingServiceInstance"`)
+	assert.Contains(t, rec.Body.String(), `"description": "The service instance does not exist"`)
+}
+
+func TestBroker_DeprovisionServiceInstance_Error(t *testing.T) {
+	test := map[string]util.HttpTestCase{
+		"/instances":              util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
+		"GET::/instances/4567":    util.HttpTestCase{200, util.Body("../_fixtures/api_get_instance.json"), nil},
+		"DELETE::/instances/4567": util.HttpTestCase{404, "", nil},
+	}
+	apiServer := util.TestServer("", "deadbeef", test)
+	defer apiServer.Close()
+	r := NewRouter(util.TestConfig(apiServer.URL))
+
+	rec := httptest.NewRecorder()
+	req, err := http.NewRequest("DELETE", "/v2/service_instances/8dcdf609-36c9-4b22-bb16-d97e48c50f26", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	req.SetBasicAuth("broker", "pw")
+	r.ServeHTTP(rec, req)
+
+	assert.Equal(t, 500, rec.Code)
+	assert.Contains(t, rec.Body.String(), `"error": "UnknownError"`)
+	assert.Contains(t, rec.Body.String(), `"description": "Could not delete service instance"`)
 }
