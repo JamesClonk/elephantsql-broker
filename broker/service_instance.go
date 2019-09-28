@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"github.com/JamesClonk/elephantsql-broker/log"
 	"github.com/gorilla/mux"
-	"github.com/swisscom/backman/log"
 )
 
 type ServiceInstanceProvisioning struct {

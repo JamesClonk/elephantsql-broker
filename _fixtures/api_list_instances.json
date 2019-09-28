@@ -20,7 +20,7 @@
     "region": "google-compute-engine::europe-west6",
     "tags": [
       "important",
-      "business",
+      "business"
     ]
   }
 ]

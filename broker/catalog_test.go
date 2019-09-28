@@ -40,6 +40,7 @@ func TestBroker_Catalog(t *testing.T) {
 	assert.Contains(t, rec.Body.String(), `"Shared high performance server"`)
 	assert.Contains(t, rec.Body.String(), `"Dedicated server"`)
 	assert.Contains(t, rec.Body.String(), `"description": "Ruthless Rat - dedicated instance with follower"`)
+	assert.Equal(t, util.Body("../_fixtures/broker_catalog.json"), rec.Body.String())
 }
 
 func TestBroker_CatalogNoSharedPlans(t *testing.T) {
@@ -70,4 +71,5 @@ func TestBroker_CatalogNoSharedPlans(t *testing.T) {
 	assert.NotContains(t, rec.Body.String(), `"Shared high performance server"`)
 	assert.Contains(t, rec.Body.String(), `"Dedicated server"`)
 	assert.Contains(t, rec.Body.String(), `"description": "Ruthless Rat - dedicated instance with follower"`)
+	assert.NotEqual(t, util.Body("../_fixtures/broker_catalog.json"), rec.Body.String())
 }
