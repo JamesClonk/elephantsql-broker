@@ -13,6 +13,8 @@ var (
 	logger *logrus.Logger
 )
 
+type Fields logrus.Fields
+
 func init() {
 	logger = newLogger(os.Stdout)
 }
@@ -29,7 +31,7 @@ func newLogger(writer io.Writer) *logrus.Logger {
 	logger.SetFormatter(&logrus.TextFormatter{
 		QuoteEmptyFields: true,
 		DisableColors:    true,
-		FullTimestamp:    false,
+		FullTimestamp:    true,
 		DisableTimestamp: !config.Get().LogTimestamp,
 	})
 	return logger
@@ -51,6 +53,10 @@ func Infoln(args ...interface{}) {
 	logger.Infoln(args...)
 }
 
+func InfoWithFields(fields Fields, args ...interface{}) {
+	logger.WithFields(logrus.Fields(fields)).Infoln(args...)
+}
+
 func Warnf(format string, args ...interface{}) {
 	logger.Warnf(format, args...)
 }
@@ -67,12 +73,20 @@ func Debugln(args ...interface{}) {
 	logger.Debugln(args...)
 }
 
+func DebugWithFields(fields Fields, args ...interface{}) {
+	logger.WithFields(logrus.Fields(fields)).Debugln(args...)
+}
+
 func Errorf(format string, args ...interface{}) {
 	logger.Errorf(format, args...)
 }
 
 func Errorln(args ...interface{}) {
 	logger.Errorln(args...)
+}
+
+func ErrorWithFields(fields Fields, args ...interface{}) {
+	logger.WithFields(logrus.Fields(fields)).Errorln(args...)
 }
 
 func Fatalf(format string, args ...interface{}) {
