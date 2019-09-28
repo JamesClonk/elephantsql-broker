@@ -1,0 +1,11 @@
+{
+  "service_id": "8ff5d1c8-c6eb-4f04-928c-6a422e0ea330",
+  "plan_id": "6203b8e7-9ef4-44ef-bb0b-48b50409794d",
+  "dashboard_url": "https://customer.elephantsql.com/instance/4567/sso",
+  "parameters": {
+    "id": 4567,
+    "name": "8dcdf609-36c9-4b22-bb16-d97e48c50f26",
+    "plan": "spider",
+    "region": "azure-arm::westeurope"
+  }
+}

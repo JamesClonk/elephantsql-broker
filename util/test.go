@@ -13,11 +13,12 @@ import (
 
 func TestConfig(apiURL string) *config.Config {
 	return &config.Config{
-		SkipSSL:      true,
-		LogLevel:     "debug",
-		LogTimestamp: true,
-		Username:     "broker",
-		Password:     "pw",
+		SkipSSL:         true,
+		LogLevel:        "debug",
+		LogTimestamp:    true,
+		Username:        "broker",
+		Password:        "pw",
+		CatalogFilename: "../catalog.yml",
 		API: config.API{
 			URL:                    apiURL,
 			Key:                    "deadbeef",
@@ -33,14 +34,16 @@ type HttpTestCase struct {
 	TestFunc       func(string)
 }
 
-func TestServer(testCases map[string]HttpTestCase) *httptest.Server {
+func TestServer(username, password string, testCases map[string]HttpTestCase) *httptest.Server {
 	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		username, password, ok := r.BasicAuth()
-		if !ok || subtle.ConstantTimeCompare([]byte("broker"), []byte(username)) != 1 || subtle.ConstantTimeCompare([]byte("pw"), []byte(password)) != 1 {
-			w.Header().Set("WWW-Authenticate", `Basic realm="test"`)
-			w.WriteHeader(401)
-			w.Write([]byte("Not authorized"))
-			return
+		if len(username) > 0 || len(password) > 0 {
+			user, pw, ok := r.BasicAuth()
+			if !ok || subtle.ConstantTimeCompare([]byte(user), []byte(username)) != 1 || subtle.ConstantTimeCompare([]byte(pw), []byte(password)) != 1 {
+				w.Header().Set("WWW-Authenticate", `Basic realm="test"`)
+				w.WriteHeader(401)
+				w.Write([]byte("Not authorized"))
+				return
+			}
 		}
 
 		for path, test := range testCases {

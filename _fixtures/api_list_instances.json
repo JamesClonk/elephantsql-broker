@@ -1,0 +1,26 @@
+[
+  {
+    "id": 123,
+    "name": "695a7463-0892-4370-b018-56b4a4afc90b",
+    "plan": "turtle",
+    "region": "amazon-web-services::eu-west-1",
+    "tags": null
+  },
+  {
+    "id": 4567,
+    "name": "8dcdf609-36c9-4b22-bb16-d97e48c50f26",
+    "plan": "spider",
+    "region": "azure-arm::westeurope",
+    "tags": []
+  },
+  {
+    "id": 890,
+    "name": "my-own-db",
+    "plan": "hippo",
+    "region": "google-compute-engine::europe-west6",
+    "tags": [
+      "important",
+      "business",
+    ]
+  }
+]

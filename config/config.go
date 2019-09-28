@@ -13,12 +13,13 @@ var (
 )
 
 type Config struct {
-	SkipSSL      bool
-	LogLevel     string
-	LogTimestamp bool
-	Username     string
-	Password     string
-	API          API
+	SkipSSL         bool
+	LogLevel        string
+	LogTimestamp    bool
+	Username        string
+	Password        string
+	CatalogFilename string
+	API             API
 }
 type API struct {
 	URL                    string
@@ -32,11 +33,12 @@ func loadConfig() {
 	logTimestamp, _ := strconv.ParseBool(env.Get("BROKER_LOG_TIMESTAMP", "false"))
 	regionPlans, _ := strconv.ParseBool(env.Get("BROKER_API_DEFAULT_REGION_PLANS_ONLY", "true"))
 	config = Config{
-		SkipSSL:      skipSSL,
-		LogLevel:     env.Get("BROKER_LOG_LEVEL", "info"),
-		LogTimestamp: logTimestamp,
-		Username:     env.MustGet("BROKER_USERNAME"),
-		Password:     env.MustGet("BROKER_PASSWORD"),
+		SkipSSL:         skipSSL,
+		LogLevel:        env.Get("BROKER_LOG_LEVEL", "info"),
+		LogTimestamp:    logTimestamp,
+		Username:        env.MustGet("BROKER_USERNAME"),
+		Password:        env.MustGet("BROKER_PASSWORD"),
+		CatalogFilename: env.Get("BROKER_CATALOG_FILENAME", "catalog.yml"),
 		API: API{
 			URL:                    env.Get("BROKER_API_URL", "https://customer.elephantsql.com/api"),
 			Key:                    env.MustGet("BROKER_API_KEY"),

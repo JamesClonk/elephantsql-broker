@@ -1,17 +1,18 @@
 package broker
 
 import (
+	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 
+	"github.com/JamesClonk/elephantsql-broker/log"
 	"github.com/JamesClonk/elephantsql-broker/util"
 	"github.com/stretchr/testify/assert"
 )
 
 func init() {
-	os.Chdir("../")
+	log.SetOutput(ioutil.Discard)
 }
 
 func TestBroker_HealthEndpoint(t *testing.T) {
@@ -23,7 +24,7 @@ func TestBroker_HealthEndpoint(t *testing.T) {
 
 	NewRouter(util.TestConfig("")).ServeHTTP(rec, req)
 	assert.Equal(t, 200, rec.Code)
-	assert.Equal(t, `{ "status": "ok" }`, rec.Body.String())
+	assert.Contains(t, rec.Body.String(), `"status": "ok"`)
 }
 
 func TestBroker_BasicAuthValid(t *testing.T) {
@@ -36,7 +37,7 @@ func TestBroker_BasicAuthValid(t *testing.T) {
 
 	NewRouter(util.TestConfig("")).ServeHTTP(rec, req)
 	assert.Equal(t, 200, rec.Code)
-	assert.Equal(t, `{ "status": "ok" }`, rec.Body.String())
+	assert.Contains(t, rec.Body.String(), `"status": "ok"`)
 }
 
 func TestBroker_BasicAuthUnauthorized(t *testing.T) {
@@ -48,5 +49,6 @@ func TestBroker_BasicAuthUnauthorized(t *testing.T) {
 
 	NewRouter(util.TestConfig("")).ServeHTTP(rec, req)
 	assert.Equal(t, 401, rec.Code)
-	assert.Equal(t, `{ "error": "Unauthorized", "description": "You are not authorized to access this service broker" }`, rec.Body.String())
+	assert.Contains(t, rec.Body.String(), `"error": "Unauthorized"`)
+	assert.Contains(t, rec.Body.String(), `"description": "You are not authorized to access this service broker"`)
 }

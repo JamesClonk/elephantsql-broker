@@ -37,6 +37,10 @@ func newLogger(writer io.Writer) *logrus.Logger {
 	return logger
 }
 
+func SetOutput(writer io.Writer) {
+	logger.SetOutput(writer)
+}
+
 func Printf(format string, args ...interface{}) {
 	logger.Infof(format, args...)
 }

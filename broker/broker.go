@@ -26,7 +26,7 @@ func NewBroker(c *config.Config) *Broker {
 		API:            c.API,
 		Mutex:          &sync.Mutex{},
 		Client:         api.NewClient(c),
-		ServiceCatalog: LoadServiceCatalog(),
+		ServiceCatalog: LoadServiceCatalog(c.CatalogFilename),
 	}
 	return b
 }

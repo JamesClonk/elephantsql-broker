@@ -1,0 +1,10 @@
+{
+  "id": 4567,
+  "name": "8dcdf609-36c9-4b22-bb16-d97e48c50f26",
+  "plan": "spider",
+  "region": "azure-arm::westeurope",
+  "tags": [],
+  "url": "postgres://my-username:my-password@ruedi.db.elephantsql.com:5432/my-dbname",
+  "apikey": "e21437ea-d62c-4f92-a27b-077b6f1decf9",
+  "ready": true
+}

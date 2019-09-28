@@ -51,17 +51,17 @@ type ServicePlan struct {
 	} `json:"metadata" yaml:"metadata"`
 }
 
-func LoadServiceCatalog() *ServiceCatalog {
+func LoadServiceCatalog(filename string) *ServiceCatalog {
 	var catalog ServiceCatalog
 
-	if _, err := os.Stat("catalog.yml"); err == nil {
-		data, err := ioutil.ReadFile("catalog.yml")
+	if _, err := os.Stat(filename); err == nil {
+		data, err := ioutil.ReadFile(filename)
 		if err != nil {
-			log.Infoln("could not load catalog.yml")
+			log.Errorf("could not load %s", filename)
 			log.Fatalln(err)
 		}
 		if err := yaml.Unmarshal(data, &catalog); err != nil {
-			log.Infoln("could not parse catalog.yml")
+			log.Errorf("could not parse %s", filename)
 			log.Fatalln(err)
 		}
 
@@ -90,12 +90,34 @@ func LoadServiceCatalog() *ServiceCatalog {
 		}
 
 	} else {
-		log.Infoln("could not load catalog.yml")
+		log.Errorf("could not load %s", filename)
 		log.Fatalln(err)
 	}
 	return &catalog
 }
 
 func (b *Broker) Catalog(rw http.ResponseWriter, req *http.Request) {
+	if b.API.DefaultRegionPlansOnly {
+		region, err := b.Client.GetRegion(b.API.DefaultRegion)
+		if err != nil {
+			log.Errorf("could not filter plans for default region [%s]: %v", b.API.DefaultRegion, err)
+		} else {
+			// create new catalog without shared plans if necessary
+			if !region.SharedPlans {
+				newServices := make([]Service, 0)
+				for _, service := range b.ServiceCatalog.Services {
+					newPlans := make([]ServicePlan, 0)
+					for _, plan := range service.Plans {
+						if plan.Metadata.DedicatedService {
+							newPlans = append(newPlans, plan)
+						}
+					}
+					service.Plans = newPlans
+					newServices = append(newServices, service)
+				}
+				b.ServiceCatalog.Services = newServices
+			}
+		}
+	}
 	b.write(rw, req, 200, b.ServiceCatalog)
 }

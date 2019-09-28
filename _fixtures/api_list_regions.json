@@ -1,0 +1,440 @@
+[
+  {
+    "provider": "amazon-web-services",
+    "region": "us-east-1",
+    "name": "Amazon Web Services - US-East-1 (Northern Virginia)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "us-east-2",
+    "name": "Amazon Web Services - US-East-2 (Ohio)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "us-west-1",
+    "name": "Amazon Web Services - US-West-1 (Northern California)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "us-west-2",
+    "name": "Amazon Web Services - US-West-2 (Oregon)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "eu-north-1",
+    "name": "Amazon Web Services - EU-North-1 (Stockholm)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "eu-west-1",
+    "name": "Amazon Web Services - EU-West-1 (Ireland)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "eu-west-2",
+    "name": "Amazon Web Services - EU-West-2 (London)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "eu-west-3",
+    "name": "Amazon Web Services - EU-West-3 (Paris)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "eu-central-1",
+    "name": "Amazon Web Services - EU-Central-1 (Frankfurt)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "ca-central-1",
+    "name": "Amazon Web Services - CA-Central-1 (Canada)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "ap-southeast-1",
+    "name": "Amazon Web Services - AP-SouthEast-1 (Singapore)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "ap-southeast-2",
+    "name": "Amazon Web Services - AP-SouthEast-2 (Sydney)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "ap-northeast-1",
+    "name": "Amazon Web Services - AP-NorthEast-1 (Tokyo)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "ap-northeast-2",
+    "name": "Amazon Web Services - AP-NorthEast-2 (Seoul)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "ap-south-1",
+    "name": "Amazon Web Services - AP-South-1 (Mumbai)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "ap-east-1",
+    "name": "Amazon Web Services - AP-East-1 (Hong Kong)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "sa-east-1",
+    "name": "Amazon Web Services - SA-East-1 (Sao Paulo)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "amazon-web-services",
+    "region": "me-south-1",
+    "name": "Amazon Web Services - ME-South-1 (Bahrain)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "us-central1",
+    "name": "Google Compute Engine - us-central1 (Iowa)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "us-east1",
+    "name": "Google Compute Engine - us-east1 (South Carolina)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "us-east4",
+    "name": "Google Compute Engine - us-east4 (North Virginia)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "us-west1",
+    "name": "Google Compute Engine - us-west1 (Oregon)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "us-west2",
+    "name": "Google Compute Engine - us-west2 (Los Angeles)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "southamerica-east1",
+    "name": "Google Compute Engine - southamerica-east1 (São Paulo)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "europe-north1",
+    "name": "Google Compute Engine - europe-north1 (Finland)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "europe-west1",
+    "name": "Google Compute Engine - europe-west1 (Belgium)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "europe-west2",
+    "name": "Google Compute Engine - europe-west2 (London)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "europe-west3",
+    "name": "Google Compute Engine - europe-west3 (Frankfurt)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "europe-west4",
+    "name": "Google Compute Engine - europe-west4 (Netherlands)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "europe-west6",
+    "name": "Google Compute Engine - europe-west6 (Zürich)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "asia-east1",
+    "name": "Google Compute Engine - asia-east1 (Taiwan)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "asia-east2",
+    "name": "Google Compute Engine - asia-east2 (Hong Kong)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "asia-northeast1",
+    "name": "Google Compute Engine - asia-northeast1 (Tokyo)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "asia-southeast1",
+    "name": "Google Compute Engine - asia-southeast1 (Singapore)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "asia-south1",
+    "name": "Google Compute Engine - asia-south1 (Mumbai)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "australia-southeast1",
+    "name": "Google Compute Engine - australia-southeast1 (Sydney)",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "google-compute-engine",
+    "region": "northamerica-northeast1",
+    "name": "Google Compute Engine - northamerica-northeast1 (Montréal, Canada)",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "australiasoutheast",
+    "name": "Azure - Australia Southeast",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "australiaeast",
+    "name": "Azure - Australia East",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "brazilsouth",
+    "name": "Azure - Brazil South",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "canadacentral",
+    "name": "Azure - Canada Central",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "canadaeast",
+    "name": "Azure - Canada East",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "centralindia",
+    "name": "Azure - Central India",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "centralus",
+    "name": "Azure - Central US",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "azure-arm",
+    "region": "eastasia",
+    "name": "Azure - East Asia",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "eastus",
+    "name": "Azure - East US",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "eastus2",
+    "name": "Azure - East US 2",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "japaneast",
+    "name": "Azure - Japan East",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "japanwest",
+    "name": "Azure - Japan West",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "northcentralus",
+    "name": "Azure - North Central US",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "northeurope",
+    "name": "Azure - North Europe",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "southcentralus",
+    "name": "Azure - South Central US",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "southeastasia",
+    "name": "Azure - South East Asia",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "southindia",
+    "name": "Azure - South India",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "uksouth",
+    "name": "Azure - UK South",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "ukwest",
+    "name": "Azure - UK West",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "westcentralus",
+    "name": "Azure - West Central US",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "westeurope",
+    "name": "Azure - West Europe",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "azure-arm",
+    "region": "westindia",
+    "name": "Azure - West India",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "westus",
+    "name": "Azure - West US",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "azure-arm",
+    "region": "westus2",
+    "name": "Azure - West US 2",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "softlayer",
+    "region": "ams01",
+    "name": "SoftLayer - AMS01 - Amsterdam, Western Europe",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "softlayer",
+    "region": "dal05",
+    "name": "SoftLayer - DAL05 - Dallas, Central United States",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "softlayer",
+    "region": "dal06",
+    "name": "SoftLayer - DAL06 - Dallas, Central United States",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "softlayer",
+    "region": "hkg02",
+    "name": "SoftLayer - HKG02 - Hong Kong, Asia",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "softlayer",
+    "region": "hou02",
+    "name": "SoftLayer - HOU02 - Houston, Central United States",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "softlayer",
+    "region": "lon02",
+    "name": "SoftLayer - LON02 - London, Western Europe",
+    "has_shared_plans": true
+  },
+  {
+    "provider": "softlayer",
+    "region": "mel01",
+    "name": "SoftLayer - MEL01 - Melbourne 1, Australia",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "softlayer",
+    "region": "sjc01",
+    "name": "SoftLayer - SJC01 - San Jose, West Coast United States",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "softlayer",
+    "region": "sea01",
+    "name": "SoftLayer - SEA01 - Seattle, West Coast United States",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "softlayer",
+    "region": "sng01",
+    "name": "SoftLayer - SNG01 - Singapore, Southeast Asia",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "softlayer",
+    "region": "tor01",
+    "name": "SoftLayer - TOR01 - Toronto 1, Canada",
+    "has_shared_plans": false
+  },
+  {
+    "provider": "softlayer",
+    "region": "wdc01",
+    "name": "SoftLayer - WDC01 - Washington DC, East Coast United States",
+    "has_shared_plans": false
+  }
+]
