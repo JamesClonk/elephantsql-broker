@@ -38,6 +38,11 @@ func (b *Broker) ProvisionInstance(rw http.ResponseWriter, req *http.Request) {
 	vars := mux.Vars(req)
 	instanceID := vars["instanceID"]
 
+	if req.Body == nil {
+		log.Errorf("error reading provisioning request: %v", req)
+		b.Error(rw, req, 400, "MalformedRequest", "Could not read provisioning request")
+		return
+	}
 	body, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		log.Errorln(err)

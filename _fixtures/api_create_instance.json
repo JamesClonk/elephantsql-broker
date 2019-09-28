@@ -1,0 +1,6 @@
+{
+  "id": 4567,
+  "message": "Instance created",
+  "url": "postgres://my-username:my-password@ruedi.db.elephantsql.com:5432/my-dbname",
+  "apikey": "d43e4b7d-79df-4633-bba3-589404ab1b19"
+}
