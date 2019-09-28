@@ -4,7 +4,7 @@ SHELL := /bin/bash
 all: run
 
 run:
-	source .env; go run main.go
+	source .env; source .env_*; go run main.go
 
 gin:
 	gin --all --immediate run main.go
