@@ -17,11 +17,11 @@ func NewRouter(c *config.Config) *mux.Router {
 
 	r.HandleFunc("/v2/catalog", b.BasicAuth(b.Catalog)).Methods("GET")
 
-	// TODO: below stuff ...
 	r.HandleFunc("/v2/service_instances/{instanceID}", b.BasicAuth(b.ProvisionInstance)).Methods("PUT")
 	r.HandleFunc("/v2/service_instances/{instanceID}", b.BasicAuth(b.FetchInstance)).Methods("GET")
 	r.HandleFunc("/v2/service_instances/{instanceID}", b.BasicAuth(b.DeprovisionInstance)).Methods("DELETE")
 
+	// TODO: below stuff ...
 	// r.HandleFunc("/v2/service_instances/{instanceID}/service_bindings/{bindingID}", b.BasicAuth(b.Bind)).Methods("PUT")
 	// r.HandleFunc("/v2/service_instances/{instanceID}/service_bindings/{bindingID}", b.BasicAuth(b.FetchBinding)).Methods("GET")
 	// r.HandleFunc("/v2/service_instances/{instanceID}/service_bindings/{bindingID}", b.BasicAuth(b.Unbind)).Methods("DELETE")

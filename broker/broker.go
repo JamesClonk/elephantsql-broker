@@ -3,7 +3,6 @@ package broker
 import (
 	"encoding/json"
 	"net/http"
-	"sync"
 
 	"github.com/JamesClonk/elephantsql-broker/api"
 	"github.com/JamesClonk/elephantsql-broker/config"
@@ -14,7 +13,6 @@ type Broker struct {
 	Username       string
 	Password       string
 	API            config.API
-	Mutex          *sync.Mutex
 	Client         *api.Client
 	ServiceCatalog *ServiceCatalog
 }
@@ -24,7 +22,6 @@ func NewBroker(c *config.Config) *Broker {
 		Username:       c.Username,
 		Password:       c.Password,
 		API:            c.API,
-		Mutex:          &sync.Mutex{},
 		Client:         api.NewClient(c),
 		ServiceCatalog: LoadServiceCatalog(c.CatalogFilename),
 	}
