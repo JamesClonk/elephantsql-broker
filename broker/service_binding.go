@@ -87,9 +87,9 @@ func (b *Broker) Bind(rw http.ResponseWriter, req *http.Request) {
 	var serviceID, planID string
 	for _, service := range b.ServiceCatalog.Services {
 		if binding.ServiceID == service.ID {
+			serviceID = service.ID
 			for _, plan := range service.Plans {
 				if binding.PlanID == plan.ID {
-					serviceID = service.ID
 					planID = plan.ID
 				}
 			}
