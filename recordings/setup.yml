@@ -42,7 +42,7 @@ config:
   # Maximum delay between frames in ms
   # Ignored if the `frameDelay` isn't set to `auto`
   # Set to `auto` to prevent limiting the max idle time
-  maxIdleTime: 2000
+  maxIdleTime: 5000
 
   # The surrounding frame box
   # The `type` can be null, window, floating, or solid`
@@ -301,5 +301,5 @@ records:
     content: "Getting services from marketplace in org \e[36;1mjamesclonk\e[0m / space \e[36;1mprod\e[0m as \e[36;1mjamesclonk\e[0m...\r\n"
   - delay: 666
     content: "\e[32;1mOK\e[0m\r\n\r\n\e[1mservice\e[0m          \e[1mplans\e[0m                                       \e[1mdescription\e[0m                  \e[1mbroker\e[0m\r\nelephantsql      turtle, spider, panda, hippo, elephant      PostgreSQL as a Service      elephantsql\r\n\r\nTIP: Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.\r\n\r\n"
-  - delay: 3333
+  - delay: 5555
     content: ' '
