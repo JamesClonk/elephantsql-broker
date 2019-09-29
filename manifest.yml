@@ -3,7 +3,7 @@
 # https://docs.developer.swisscom.com/devguide/deploy-apps/manifest.html
 
 applications:
-- name: backman
+- name: elephantsql-broker
   memory: 64M
   disk_quota: 64M
   instances: 2
