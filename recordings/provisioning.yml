@@ -1,0 +1,341 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /home/jamesclonk/gopath/src/github.com/JamesClonk/elephantsql-broker
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 160
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 40
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 5000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: solid
+    title: null
+    style:
+      boxShadow: none
+      margin: 0px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  #fontFamily: "Liberation Mono, Liberation Mono for Powerline, Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  fontFamily: "Liberation Mono"
+
+  # The size of the font
+  # fontSize: 12
+  fontSize: 11
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#f8f8f2"
+    cursor: "#f8f8f2"
+    black: "#272822"
+    red: "#f92672"
+    green: "#a6e22e"
+    yellow: "#f4bf75"
+    blue: "#66d9ef"
+    magenta: "#ae81ff"
+    cyan: "#a1efe4"
+    white: "#f8f8f2"
+    brightBlack: "#75715e"
+    brightRed: "#fd971f"
+    brightGreen: "#383830"
+    brightYellow: "#49483e"
+    brightBlue: "#a59f85"
+    brightMagenta: "#f5f4f1"
+    brightCyan: "#cc6633"
+    brightWhite: "#d0d0d0"
+
+# Records, feel free to edit them
+records:
+  - delay: 1
+    content: "\e[32m$\e[31m\e[0m\x0F "
+  - delay: 666
+    content: c
+  - delay: 222
+    content: f
+  - delay: 166
+    content: ' '
+  - delay: 133
+    content: c
+  - delay: 111
+    content: r
+  - delay: 133
+    content: e
+  - delay: 111
+    content: a
+  - delay: 111
+    content: t
+  - delay: 111
+    content: e
+  - delay: 133
+    content: '-'
+  - delay: 133
+    content: s
+  - delay: 111
+    content: e
+  - delay: 111
+    content: r
+  - delay: 133
+    content: v
+  - delay: 111
+    content: i
+  - delay: 133
+    content: c
+  - delay: 111
+    content: e
+  - delay: 333
+    content: ' '
+  - delay: 666
+    content: >-
+      elephantsql turtle my-postgres-db
+  - delay: 1555
+    content: "\r\n"
+  - delay: 666
+    content: "Creating service instance \e[36;1mmy-postgres-db\e[0m in org \e[36;1mjamesclonk\e[0m / space \e[36;1mprod\e[0m as \e[36;1mjamesclonk\e[0m...\r\n"
+  - delay: 1111
+    content: "\e[32;1mOK\e[0m\r\n\r\n"
+  - delay: 10
+    content: "\e[32m$\e[31m\e[0m\x0F "
+  - delay: 999
+    content: "\r\n\e[32m$\e[31m\e[0m\x0F "
+  - delay: 333
+    content: c
+  - delay: 222
+    content: f
+  - delay: 166
+    content: ' '
+  - delay: 166
+    content: s
+  - delay: 133
+    content: e
+  - delay: 111
+    content: r
+  - delay: 133
+    content: v
+  - delay: 111
+    content: i
+  - delay: 133
+    content: c
+  - delay: 111
+    content: e
+  - delay: 333
+    content: ' '
+  - delay: 166
+    content: m
+  - delay: 111
+    content: 'y'
+  - delay: 133
+    content: '-'
+  - delay: 166
+    content: p
+  - delay: 111
+    content: o
+  - delay: 111
+    content: s
+  - delay: 133
+    content: t
+  - delay: 111
+    content: g
+  - delay: 133
+    content: r
+  - delay: 166
+    content: e
+  - delay: 111
+    content: s
+  - delay: 166
+    content: '-'
+  - delay: 133
+    content: d
+  - delay: 111
+    content: b
+  - delay: 111
+    content: "\r\n"
+  - delay: 666
+    content: "Showing info of service \e[36;1mmy-postgres-db\e[0m in org \e[36;1mjamesclonk\e[0m / space \e[36;1mprod\e[0m as \e[36;1mjamesclonk\e[0m...\r\n\r\n"
+  - delay: 1111
+    content: "name:            my-postgres-db\r\nservice:         elephantsql\r\ntags:            \r\nplan:            turtle\r\ndescription:     PostgreSQL as a Service\r\ndocumentation:   https://www.elephantsql.com/docs/\r\ndashboard:       https://customer.elephantsql.com/instance/70961/sso\r\n\r\nShowing status of last operation from service my-postgres-db...\r\n\r\nstatus:    create succeeded\r\nmessage:   \r\nstarted:   2019-09-29T18:49:59Z\r\nupdated:   2019-09-29T18:49:59Z\r\n\r\nThere are no bound apps for this service.\r\n\r\n"
+  - delay: 10
+    content: "\e[32m$\e[31m\e[0m\x0F "
+  - delay: 1111
+    content: "\r\n\e[32m$\e[31m\e[0m\x0F "
+  - delay: 333
+    content: c
+  - delay: 222
+    content: f
+  - delay: 166
+    content: ' '
+  - delay: 166
+    content: b
+  - delay: 133
+    content: i
+  - delay: 111
+    content: 'n'
+  - delay: 133
+    content: d
+  - delay: 133
+    content: '-'
+  - delay: 111
+    content: s
+  - delay: 111
+    content: e
+  - delay: 166
+    content: r
+  - delay: 111
+    content: v
+  - delay: 166
+    content: i
+  - delay: 111
+    content: c
+  - delay: 111
+    content: e
+  - delay: 333
+    content: ' '
+  - delay: 666
+    content: >-
+      my-app my-postgres-db
+  - delay: 1555
+    content: "\r\n"
+  - delay: 666
+    content: "Binding service \e[36;1mmy-postgres-db\e[0m to app \e[36;1mmy-app\e[0m in org \e[36;1mjamesclonk\e[0m / space \e[36;1mprod\e[0m as \e[36;1mjamesclonk\e[0m...\r\n"
+  - delay: 1318
+    content: "\e[32;1mOK\e[0m\r\nTIP: Use 'cf restage my-app' to ensure your env variable changes take effect\r\n\r\n"
+  - delay: 10
+    content: "\e[32m$\e[31m\e[0m\x0F "
+  - delay: 1111
+    content: "\r\n\e[32m$\e[31m\e[0m\x0F "
+  - delay: 333
+    content: c
+  - delay: 222
+    content: f
+  - delay: 166
+    content: ' '
+  - delay: 111
+    content: e
+  - delay: 133
+    content: 'n'
+  - delay: 111
+    content: v
+  - delay: 333
+    content: ' '
+  - delay: 222
+    content: m
+  - delay: 166
+    content: 'y'
+  - delay: 166
+    content: '-'
+  - delay: 166
+    content: a
+  - delay: 133
+    content: p
+  - delay: 111
+    content: p
+  - delay: 999
+    content: "\r\n"
+  - delay: 666
+    content: "Getting env variables for app \e[36;1mmy-app\e[0m in org \e[36;1mjamesclonk\e[0m / space \e[36;1mprod\e[0m as \e[36;1mjamesclonk\e[0m...\r\n"
+  - delay: 666
+    content: "\e[32;1mOK\e[0m\r\n\r\n\e[36;1mSystem-Provided:\e[0m\r\n{\r\n \"VCAP_SERVICES\": {\r\n  \"elephantsql\": [\r\n   {\r\n    \"credentials\": {\r\n     \"apikey\": \"48a735cc-1b72-4e5a-81df-a66efd6abef2\",\r\n     \"database\": \"rkojbpbc\",\r\n     \"host\": \"dumbo.db.elephantsql.com:5432\",\r\n     \"password\": \"x3T7nUiUgiyHWzcduvq7FM3Yv58RQvuQ\",\r\n     \"uri\": \"postgres://rkojbpbc:x3T7nUiUgiyHWzcduvq7FM3Yv58RQvuQ@dumbo.db.elephantsql.com:5432/rkojbpbc\",\r\n     \"username\": \"rkojbpbc\"\r\n    },\r\n    \"instance_name\": \"my-postgres-db\",\r\n    \"label\": \"elephantsql\",\r\n    \"name\": \"my-postgres-db\",\r\n    \"plan\": \"turtle\",\r\n    \"tags\": [\r\n     \"elephantsql\",\r\n     \"postgres\",\r\n    ]\r\n   }\r\n  ]\r\n }\r\n}\r\n\r\n\e[36;1mRunning Environment Variable Groups:\e[0m\r\nAPI_ENDPOINT: api.lyra-836.appcloud.swisscom.com\r\n\r\n"
+  - delay: 10
+    content: "\e[32m$\e[31m\e[0m\x0F "
+  - delay: 2333
+    content: "\r\n\e[32m$\e[31m\e[0m\x0F "
+  - delay: 333
+    content: p
+  - delay: 222
+    content: s
+  - delay: 166
+    content: q
+  - delay: 133
+    content: l
+  - delay: 333
+    content: ' '
+  - delay: 666
+    content: >-
+      postgres://rkojbpbc:x3T7nUiUgiyHWzcduvq7FM3Yv58RQvuQ@dumbo.db.elephantsql.com:5432/rkojbpbc
+  - delay: 1555
+    content: "\r\n"
+  - delay: 666
+    content: "psql (11.5, server 9.6.5)\r\nSSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES128-GCM-SHA256, bits: 128, compression: off)\r\nType \"help\" for help.\r\n\r\nrkojbpbc=> "
+  - delay: 1111
+    content: \
+  - delay: 333
+    content: d
+  - delay: 333
+    content: "\r\n"
+  - delay: 666
+    content: "               List of relations\r\n Schema |        Name        | Type |  Owner   \r\n--------+--------------------+------+----------\r\n public | pg_stat_statements | view | postgres\r\n(1 row)\r\n\r\nrkojbpbc=> "
+  - delay: 999
+    content: \
+  - delay: 333
+    content: q
+  - delay: 333
+    content: "\r\n"
+  - delay: 10
+    content: "\e[32m$\e[31m\e[0m\x0F "
+  - delay: 5555
+    content: ' '
