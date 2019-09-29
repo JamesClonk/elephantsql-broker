@@ -8,3 +8,26 @@
 > Perfectly configured and optimized PostgreSQL databases ready in 2 minutes.
 
 **elephantsql-broker** is an [ElephantSQL](https://www.elephantsql.com/) [service broker](https://www.openservicebrokerapi.org/) for [Cloud Foundry](https://www.cloudfoundry.org/) and [Kubernetes](https://kubernetes.io/)
+
+## Usage
+
+#### Deploy service broker to Cloud Foundry
+
+1. create an API key for your ElephantSQL [account](https://customer.elephantsql.com/apikeys)
+2. pick a Cloud Foundry provider.
+   I'd suggest the [Swisscom AppCloud](https://developer.swisscom.com/)
+3. push the app, providing the API key and a username/password to secure the service broker with
+4. register the service broker in your space (`--space-scoped`)
+5. check `cf marketplace` to see your new available service plans
+
+![create service broker](https://raw.githubusercontent.com/JamesClonk/elephantsql-broker/recordings/recordings/setup-min.gif "create service broker")
+
+#### Provision new databases
+
+1. create a new service instance (`cf cs`)
+2. bind the service instance to your app (`cf bs`), or create a service key (`cf csk`)
+3. inspect the service binding/key, have a look at the credentials (`cf env`/`cf sk`)
+4. use the given credentials to connect to your new Postgres database
+5. enjoy!
+
+![provision service](https://raw.githubusercontent.com/JamesClonk/elephantsql-broker/recordings/recordings/provisioning-min.gif "provision service")
