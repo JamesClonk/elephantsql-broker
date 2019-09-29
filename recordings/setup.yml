@@ -75,11 +75,12 @@ config:
   # Font family
   # You can use any font that is installed on your machine
   # in CSS-like syntax
-  fontFamily: "Liberation Mono, Liberation Mono for Powerline, Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  #fontFamily: "Liberation Mono, Liberation Mono for Powerline, Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  fontFamily: "Liberation Mono"
 
   # The size of the font
   # fontSize: 12
-  fontSize: 12
+  fontSize: 11
 
   # The height of lines
   lineHeight: 1
@@ -117,15 +118,15 @@ records:
     content: c
   - delay: 222
     content: f
-  - delay: 200
+  - delay: 166
     content: ' '
-  - delay: 222
+  - delay: 133
     content: p
-  - delay: 210
+  - delay: 133
     content: u
-  - delay: 200
+  - delay: 133
     content: s
-  - delay: 200
+  - delay: 133
     content: h
   - delay: 333
     content: ' '
@@ -133,7 +134,7 @@ records:
     content: >-
       --var username=broker --var password=secret --var
       api_key=c0ceea8e-5b7f-4563-ab02-94c81654ae7d
-  - delay: 666
+  - delay: 1555
     content: "\r\n"
   - delay: 666
     content: "Pushing from manifest to org \e[36;1mjamesclonk\e[0m / space \e[36;1mprod\e[0m as \e[36;1mjamesclonk\e[0m...\r\nUsing manifest file /home/jamesclonk/gopath/src/github.com/JamesClonk/elephantsql-broker/manifest.yml\r\nGetting app info...\r\n"
@@ -197,22 +198,108 @@ records:
     content: "\r\n"
   - delay: 666
     content: "name:              elephantsql-broker\r\nrequested state:   started\r\nroutes:            elephantsql-broker.scapp.io, elephantsql-broker.applicationcloud.io\r\nlast uploaded:     Sun 29 Sep 13:03:00 CEST 2019\r\nstack:             cflinuxfs3\r\nbuildpacks:        go\r\n\r\ntype:            web\r\ninstances:       2/2\r\nmemory usage:    64M\r\nstart command:   elephantsql-broker\r\n     \e[1mstate\e[0m     \e[1msince\e[0m                  \e[1mcpu\e[0m    \e[1mmemory\e[0m        \e[1mdisk\e[0m           \e[1mdetails\e[0m\r\n#0   running   2019-09-29T11:03:10Z   0.0%   9.2M of 64M   18.4M of 64M   \r\n#1   running   2019-09-29T11:03:10Z   0.0%   8.8M of 64M   18.4M of 64M   \r\n\r\n"
-  - delay: 100
+  - delay: 10
     content: "\e[32m$\e[31m\e[0m\x0F "
-  - delay: 666
+  - delay: 999
+    content: "\r\n\e[32m$\e[31m\e[0m\x0F "
+  - delay: 111
     content: c
   - delay: 222
     content: u
-  - delay: 222
+  - delay: 166
     content: r
-  - delay: 222
+  - delay: 133
     content: l
-  - delay: 222
+  - delay: 333
     content: ' '
   - delay: 666
     content:  >-
       https://broker:secret@elephantsql-broker.applicationcloud.io/health
-  - delay: 100
+  - delay: 1555
     content: "\r\n"
   - delay: 666
     content: "{\r\n  \"status\": \"ok\"\r\n}\r\n"
+  - delay: 10
+    content: "\e[32m$\e[31m\e[0m\x0F "
+  - delay: 999
+    content: "\r\n\e[32m$\e[31m\e[0m\x0F "
+  - delay: 111
+    content: c
+  - delay: 222
+    content: f
+  - delay: 166
+    content: ' '
+  - delay: 133
+    content: c
+  - delay: 133
+    content: r
+  - delay: 111
+    content: e
+  - delay: 133
+    content: a
+  - delay: 111
+    content: t
+  - delay: 133
+    content: e
+  - delay: 166
+    content: '-'
+  - delay: 133
+    content: s
+  - delay: 111
+    content: e
+  - delay: 166
+    content: r
+  - delay: 111
+    content: v
+  - delay: 166
+    content: i
+  - delay: 133
+    content: c
+  - delay: 111
+    content: e
+  - delay: 200
+    content: '-'
+  - delay: 111
+    content: b
+  - delay: 133
+    content: r
+  - delay: 111
+    content: o
+  - delay: 133
+    content: k
+  - delay: 111
+    content: e
+  - delay: 133
+    content: r
+  - delay: 333
+    content: ' '
+  - delay: 666
+    content: >-
+      elephantsql broker secret https://elephantsql-broker.applicationcloud.io
+      --space-scoped
+  - delay: 1555
+    content: "\r\n"
+  - delay: 666
+    content: "Creating service broker \e[36;1melephantsql\e[0m in org \e[36;1mjamesclonk\e[0m / space \e[36;1mprod\e[0m as \e[36;1mjamesclonk\e[0m...\r\n"
+  - delay: 1000
+    content: "\e[32;1mOK\e[0m\r\n\r\n"
+  - delay: 10
+    content: "\e[32m$\e[31m\e[0m\x0F "
+  - delay: 999
+    content: "\r\n\e[32m$\e[31m\e[0m\x0F "
+  - delay: 111
+    content: c
+  - delay: 222
+    content: f
+  - delay: 166
+    content: ' '
+  - delay: 166
+    content: m
+  - delay: 200
+    content: "\r\n"
+  - delay: 666
+    content: "Getting services from marketplace in org \e[36;1mjamesclonk\e[0m / space \e[36;1mprod\e[0m as \e[36;1mjamesclonk\e[0m...\r\n"
+  - delay: 666
+    content: "\e[32;1mOK\e[0m\r\n\r\n\e[1mservice\e[0m          \e[1mplans\e[0m                                       \e[1mdescription\e[0m                  \e[1mbroker\e[0m\r\nelephantsql      turtle, spider, panda, hippo, elephant      PostgreSQL as a Service      elephantsql\r\n\r\nTIP: Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.\r\n\r\n"
+  - delay: 3333
+    content: ' '
