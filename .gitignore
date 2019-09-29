@@ -13,7 +13,6 @@
 
 # ---------
 .env_*
-recordings/*.gif
 gin-bin
 elephantsql-broker
 servicebroker
