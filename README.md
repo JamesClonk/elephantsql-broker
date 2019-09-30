@@ -31,3 +31,12 @@
 5. enjoy!
 
 ![provision service](https://raw.githubusercontent.com/JamesClonk/elephantsql-broker/recordings/recordings/provisioning-min.gif "provision service")
+
+### Default Region
+
+By default the service broker will provision new elephantsql database instances in the configured region `BROKER_API_DEFAULT_REGION` (see `manifest.yml`) or if none configured at all it will use `azure-arm::westeurope` as default value.
+When issuing service provisioning requests to the service broker it is also possible to provide the region as an additional parameter.
+###### Example:
+```
+$ cf create-service elephantsql hippo my-db -c '{"region": "amazon-web-services::eu-west-3"}'
+```

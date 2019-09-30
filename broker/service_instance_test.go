@@ -18,9 +18,15 @@ func init() {
 }
 
 func TestBroker_ProvisionServiceInstance(t *testing.T) {
+	createInstanceCalled := false
 	test := map[string]util.HttpTestCase{
-		"GET::/instances":  util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
-		"POST::/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_create_instance.json"), nil},
+		"GET::/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
+		"POST::/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_create_instance.json"), func(body string) {
+			createInstanceCalled = true
+			assert.Contains(t, body, `name=47d80867-a199-4b5c-8425-8caec83151a4`)
+			assert.Contains(t, body, `plan=turtle`)
+			assert.Contains(t, body, `region=azure-arm%3A%3Awesteurope`)
+		}},
 	}
 	apiServer := util.TestServer("", "deadbeef", test)
 	defer apiServer.Close()
@@ -42,6 +48,7 @@ func TestBroker_ProvisionServiceInstance(t *testing.T) {
 
 	assert.Equal(t, 201, rec.Code)
 	assert.Equal(t, util.Body("../_fixtures/broker_provision_service_instance.json"), rec.Body.String())
+	assert.Equal(t, true, createInstanceCalled) // should be called to create a new elephantsql instance
 }
 
 func TestBroker_ProvisionServiceInstance_EmptyBody(t *testing.T) {
@@ -83,10 +90,15 @@ func TestBroker_ProvisionServiceInstance_UnknownPlan(t *testing.T) {
 }
 
 func TestBroker_ProvisionServiceInstance_Conflicting(t *testing.T) {
+	createInstanceCalled := false
 	test := map[string]util.HttpTestCase{
-		"/instances":      util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
+		"GET::/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
 		"/instances/4567": util.HttpTestCase{200, util.Body("../_fixtures/api_get_instance.json"), nil},
+		"POST::/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_create_instance.json"), func(body string) {
+			createInstanceCalled = true
+		}},
 	}
+
 	apiServer := util.TestServer("", "deadbeef", test)
 	defer apiServer.Close()
 	r := NewRouter(util.TestConfig(apiServer.URL))
@@ -108,12 +120,17 @@ func TestBroker_ProvisionServiceInstance_Conflicting(t *testing.T) {
 	assert.Equal(t, 409, rec.Code)
 	assert.Contains(t, rec.Body.String(), `"error": "Conflict"`)
 	assert.Contains(t, rec.Body.String(), `"description": "The service instance already exists with different attributes"`)
+	assert.Equal(t, false, createInstanceCalled) // should not be called
 }
 
 func TestBroker_ProvisionServiceInstance_Existing(t *testing.T) {
+	createInstanceCalled := false
 	test := map[string]util.HttpTestCase{
-		"/instances":      util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
+		"GET::/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
 		"/instances/4567": util.HttpTestCase{200, util.Body("../_fixtures/api_get_instance.json"), nil},
+		"POST::/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_create_instance.json"), func(body string) {
+			createInstanceCalled = true
+		}},
 	}
 	apiServer := util.TestServer("", "deadbeef", test)
 	defer apiServer.Close()
@@ -135,6 +152,42 @@ func TestBroker_ProvisionServiceInstance_Existing(t *testing.T) {
 
 	assert.Equal(t, 200, rec.Code)
 	assert.Equal(t, util.Body("../_fixtures/broker_provision_service_instance.json"), rec.Body.String())
+	assert.Equal(t, false, createInstanceCalled) // should not be called
+}
+
+func TestBroker_ProvisionServiceInstance_WithRegionParameter(t *testing.T) {
+	createInstanceCalled := false
+	test := map[string]util.HttpTestCase{
+		"GET::/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_list_instances.json"), nil},
+		"POST::/instances": util.HttpTestCase{200, util.Body("../_fixtures/api_create_instance.json"), func(body string) {
+			createInstanceCalled = true
+			assert.Contains(t, body, `name=47d80867-a199-4b5c-8425-8caec83151a4`)
+			assert.Contains(t, body, `plan=cat`)
+			assert.Contains(t, body, `region=azure%3A%3Aswitzerland-alps`)
+		}},
+	}
+	apiServer := util.TestServer("", "deadbeef", test)
+	defer apiServer.Close()
+	r := NewRouter(util.TestConfig(apiServer.URL))
+
+	provisioning := ServiceInstanceProvisioning{
+		ServiceID: "8ff5d1c8-c6eb-4f04-928c-6a422e0ea330",
+		PlanID:    "c1ee0844-b72e-4310-ad92-646107e04534",
+	}
+	provisioning.Parameters.Region = "azure::switzerland-alps"
+	data, _ := json.MarshalIndent(provisioning, "", "  ")
+
+	rec := httptest.NewRecorder()
+	req, err := http.NewRequest("PUT", "/v2/service_instances/47d80867-a199-4b5c-8425-8caec83151a4", bytes.NewBuffer(data))
+	if err != nil {
+		t.Fatal(err)
+	}
+	req.SetBasicAuth("broker", "pw")
+	r.ServeHTTP(rec, req)
+
+	assert.Equal(t, 201, rec.Code)
+	assert.Equal(t, util.Body("../_fixtures/broker_provision_service_instance.json"), rec.Body.String())
+	assert.Equal(t, true, createInstanceCalled) // should be called to create a new elephantsql instance
 }
 
 func TestBroker_FetchServiceInstance(t *testing.T) {
