@@ -66,8 +66,8 @@ func LoadServiceCatalog(filename string) *ServiceCatalog {
 		}
 
 		// expect & hardcode certain default values
-		if len(catalog.Services) < 1 {
-			log.Errorln("invalid catalog, more than one service offering defined")
+		if len(catalog.Services) != 1 {
+			log.Errorln("invalid catalog, only one service offering must be defined")
 			log.Fatalln(catalog)
 		}
 		if len(catalog.Services[0].ID) == 0 {
