@@ -17,8 +17,8 @@ type Service struct {
 	Name                 string   `json:"name" yaml:"name"`
 	Description          string   `json:"description" yaml:"description"`
 	Bindable             bool     `json:"bindable" yaml:"bindable"`
-	InstancesRetrievable bool     `json:"instances_retrievable"`
-	BindingsRetrievable  bool     `json:"bindings_retrievable"`
+	InstancesRetrievable bool     `json:"instances_retrievable" yaml:"instances_retrievable"`
+	BindingsRetrievable  bool     `json:"bindings_retrievable" yaml:"bindings_retrievable"`
 	Tags                 []string `json:"tags" yaml:"tags"`
 	Metadata             struct {
 		DisplayName         string `json:"displayName" yaml:"displayName"`
