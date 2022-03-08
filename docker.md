@@ -92,7 +92,6 @@ The output should look like this:
 {
   "status": "ok"
 }
-;
 ```
 
 Use `ngrok` to make the service available beyond your local machine:
