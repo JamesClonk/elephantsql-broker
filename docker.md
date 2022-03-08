@@ -13,9 +13,7 @@ Assumptions:
 * you have a Docker engine installed locally
 * you have [ngrok](https://ngrok.com/) installed so that you can make the service available beyond your local machine
 * you have cloned this repository and are in the root of the clone
-* you have the CF command line tool `cf`, specifically version 7
-
-> Version 7 of `cf` is called out specifically here as the options for the `cf marketplace` command changed from version 6
+* you have the CF command line tool `cf` and also `curl` locally
 
 ### Build the image
 
