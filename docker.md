@@ -4,6 +4,8 @@ Instead of running the service broker as a CF app, as described in the main [REA
 
 If you want to try this out, there's a [Dockerfile](Dockerfile) in this repository that you can use. In many ways it mirrors the [manifest.yml](manifest.yml) configuration for CF; in particular, it has `ENV` instructions for each of the variables such as the username and password for the broker, and the API key.
 
+There's a blog post that relates directly to this content, and provides a walkthrough of the process here and slightly beyond, with comments on what is happening and observations on what OSBAPI calls are being made: [Exploring service brokers and service consumption on SAP Business Technology Platform](https://blogs.sap.com/2022/03/08/exploring-service-brokers-and-cf-on-sap-business-technology-platform/).
+
 ## Steps
 
 Here are the steps to getting the service broker up and running in a Docker container, and available to your CF space.
