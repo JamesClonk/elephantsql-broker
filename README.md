@@ -22,6 +22,8 @@
 
 ![create service broker](https://raw.githubusercontent.com/JamesClonk/elephantsql-broker/recordings/recordings/setup-min.gif "create service broker")
 
+As an alternative to deploying the service broker to CF, you can also [run it in a Docker container](docker.md).
+
 #### Provision new databases
 
 1. create a new service instance (`cf cs`)

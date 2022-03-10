@@ -8,20 +8,16 @@ applications:
   disk_quota: 64M
   instances: 2
 
-  routes:
-  - route: elephantsql-broker.scapp.io
-  - route: elephantsql-broker.applicationcloud.io
-
   buildpacks:
   - go_buildpack
   command: elephantsql-broker
   path: .
 
   env:
-    TZ: Europe/Zurich
+    TZ: Europe/London
     # BROKER_LOG_LEVEL: info
     BROKER_USERNAME: ((username))
     BROKER_PASSWORD: ((password))
     BROKER_API_URL: https://customer.elephantsql.com/api
     BROKER_API_KEY: ((api_key))
-    BROKER_API_DEFAULT_REGION: google-compute-engine::europe-west6 # (Zürich)
+    BROKER_API_DEFAULT_REGION: google-compute-engine::europe-west2
